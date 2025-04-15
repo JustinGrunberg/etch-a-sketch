@@ -40,7 +40,21 @@ function createGrid(totalGridSize, cellSize){
 
 function createHoverEffect(e){
     if(e.target.className === 'grid-item'){
-        e.target.style.backgroundColor = 'blue';
+
+        const containerRect = container.getBoundingClientRect();
+        const mouseX = e.clientX - containerRect.left;
+        const mouseY = e.clientY - containerRect.top;
+
+        let currentOpacity = parseFloat(e.target.dataset.opacity || 0)
+
+        if(currentOpacity < 1){
+            currentOpacity += 0.1
+            currentOpacity = Math.min(currentOpacity, 1)
+        }
+
+        e.target.dataset.opacity = currentOpacity;
+
+        e.target.style.backgroundColor = `rgba(${mouseX}, ${mouseY}, 40, ${currentOpacity})`;         
     }
 }
 
