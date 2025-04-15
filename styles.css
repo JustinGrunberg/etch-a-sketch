@@ -28,3 +28,18 @@ main {
     border: 1px solid black;
     border-radius: 5px;
 }
+
+main > #grid-creator {
+    padding: 1rem 2rem;
+    border: none;
+    background-color: #007BFF;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+main > #grid-creator:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
